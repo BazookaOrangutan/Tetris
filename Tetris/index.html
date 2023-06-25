@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/style.css">   
+
+    <title>Tetris</title>
+</head>
+
+<body>
+    <header>
+        <div class="logo">
+            <img src="/src/img/logo.png" alt="">
+        </div>
+        <div class="title"><h1>Tetris</h1></div>
+    </header>
+    <main>
+        <div class="container">
+            <div class="game">
+                <div><canvas id="next"></canvas></div>
+                <!-- <div class="field"></div> -->
+                <div><canvas id="field"></canvas></div> 
+                
+                <div class="menu">
+                    <div class="menu__data">
+                        <div class="score">Score: 0</div>
+                        <div class="lines">Lines: 0</div>
+                        <div class="level">Level: 0</div>
+                    </div>
+                    <button class="retry" onclick="play()">Retry</button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+
+    <script type="text/javascript" src="/js/Const.js"></script>
+    <script type="text/javascript" src="/js/Field.js"></script>
+    <script type="text/javascript" src="/js/Block.js"></script>
+    <script type="text/javascript" src="/js/script.js"></script>
+</body>
+
+</html>
