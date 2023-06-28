@@ -33,7 +33,6 @@ header{
 .title h1{
     font-weight: normal;
     font-size: 89px;
-
 }
 
 .container{
@@ -99,7 +98,6 @@ header{
     margin-top: 50px;
     width: 155px;
     height: 55px;
-    border: 1px gray solid;
     background-color: #69B71B;
     display: flex;
     align-items: center;
