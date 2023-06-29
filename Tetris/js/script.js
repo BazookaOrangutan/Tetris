@@ -1,58 +1,18 @@
-
-
-// const field = document.querySelector('.field');
-
-
-
-
-
-// for (let x = 0; x < sizeX; x++) {
-//     const line = document.createElement('div');
-//     for (let y = 0; y < sizeY; y++) {
-//         const block = document.createElement('div');
-//         block.classList.add('field__block');
-//         line.appendChild(block);
-//     }
-//     line.classList.add('.field__line')
-//     field.appendChild(line);
-// }
-
-// Map
-
-// map = [[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-// [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-// [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-// [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-// [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-// [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-// [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-// [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-// [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-// [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-// [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-// [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-// [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-// [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-// [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-// [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-// [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-// [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-// [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-// [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-// [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-// [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-// [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-// [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],]
-
 const canvas = document.getElementById('field');
 const context = canvas.getContext('2d');
 context.canvas.width = COLS * BLOCK_SIZE;
 context.canvas.height = ROWS * BLOCK_SIZE;
+
 const canvasNext = document.getElementById('next');
 const ctxNext = canvasNext.getContext('2d');
+ctxNext.canvas.width = 230;
+ctxNext.canvas.height = 370;
+
 const linesDiv = document.querySelector('.lines');
 const scoreDiv = document.querySelector('.score');
 const levelDiv = document.querySelector('.level');
+
+const playButton = document.querySelector('.retry');
 
 for (let x = 0; x < COLS; x++) {
     for (let y = 0; y < ROWS; y++) {
@@ -60,43 +20,43 @@ for (let x = 0; x < COLS; x++) {
     }
 }
 
-const tetrominos = {
-    'I': [
-        [0, 0, 0, 0],
-        [1, 1, 1, 1],
-        [0, 0, 0, 0],
-        [0, 0, 0, 0]
-    ],
-    'J': [
-        [1, 0, 0],
-        [1, 1, 1],
-        [0, 0, 0],
-    ],
-    'L': [
-        [0, 0, 1],
-        [1, 1, 1],
-        [0, 0, 0],
-    ],
-    'O': [
-        [1, 1],
-        [1, 1],
-    ],
-    'S': [
-        [0, 1, 1],
-        [1, 1, 0],
-        [0, 0, 0],
-    ],
-    'Z': [
-        [1, 1, 0],
-        [0, 1, 1],
-        [0, 0, 0],
-    ],
-    'T': [
-        [0, 1, 0],
-        [1, 1, 1],
-        [0, 0, 0],
-    ]
-}
+// const TETROMINOS = {
+//     'I': [
+//         [0, 0, 0, 0],
+//         [1, 1, 1, 1],
+//         [0, 0, 0, 0],
+//         [0, 0, 0, 0]
+//     ],
+//     'J': [
+//         [1, 0, 0],
+//         [1, 1, 1],
+//         [0, 0, 0],
+//     ],
+//     'L': [
+//         [0, 0, 1],
+//         [1, 1, 1],
+//         [0, 0, 0],
+//     ],
+//     'O': [
+//         [1, 1],
+//         [1, 1],
+//     ],
+//     'S': [
+//         [0, 1, 1],
+//         [1, 1, 0],
+//         [0, 0, 0],
+//     ],
+//     'Z': [
+//         [1, 1, 0],
+//         [0, 1, 1],
+//         [0, 0, 0],
+//     ],
+//     'T': [
+//         [0, 1, 0],
+//         [1, 1, 1],
+//         [0, 0, 0],
+//     ]
+// }
 
 const colors = {
     'I': 'cyan',
@@ -112,15 +72,6 @@ const grid = 30;
 
 let tetrominoSequence = [];
 
-const nextSequance = [];
-
-
-
-// for (let i = 0; i < 3; i++) {
-//     nextList.push(sequence[randomType()]);
-// }
-
-
 let playfield = [];
 function clear() {
     for (let row = -2; row < ROWS; row++) {
@@ -134,7 +85,7 @@ clear();
 
 
 
-let tetromino = getNextTetromino();
+// let tetromino = getNextTetromino();
 
 let nextTetromino = getNextTetromino();
 
@@ -179,7 +130,7 @@ function getNextTetromino() {
     }
     const name = tetrominoSequence.pop();
     // const name = nextList.pop();
-    const matrix = tetrominos[name];
+    const matrix = TETROMINOS[name];
 
     const col = playfield[0].length / 2 - Math.ceil(matrix[0].length / 2);
 
@@ -288,7 +239,9 @@ function placeTetromino() {
     }
 
     // получаем следующую фигуру
-    tetromino = getNextTetromino();
+    tetromino = nextTetromino;
+    nextTetromino = getNextTetromino();
+    // tetromino = getNextTetromino();
     console.log(playfield);
 }
 
@@ -358,6 +311,24 @@ function loop() {
 
                 // рисуем всё на один пиксель меньше, чтобы получился эффект «в клетку»
                 context.fillRect(col * grid - 0.5, row * grid - 0.5, grid - 1, grid - 1);
+            }
+        }
+    }
+
+    ctxNext.clearRect(0,0, canvasNext.width, canvasNext.height);
+
+
+//playfield[0].length / 2 - Math.ceil(matrix[0].length / 2)
+
+    if (nextTetromino){
+        ctxNext.fillStyle = colors[nextTetromino.name];
+        for(let row = 0; row < nextTetromino.matrix.length; row++){
+            for(let col = 0; col < nextTetromino.matrix[row].length; col++){
+                if(nextTetromino.matrix[row][col]){
+                    if(nextTetromino.name === 'O') ctxNext.fillRect((col) * BLOCK_SIZE_NEXT + canvasNext.width / 2 - 33, (row) * BLOCK_SIZE_NEXT + canvasNext.height / 2 - 33, BLOCK_SIZE_NEXT - 1, BLOCK_SIZE_NEXT - 1);
+                    else if(nextTetromino.name === 'I') ctxNext.fillRect((col) * BLOCK_SIZE_NEXT + canvasNext.width / 2 - 67, (row) * BLOCK_SIZE_NEXT + canvasNext.height / 2 - 55, BLOCK_SIZE_NEXT - 1, BLOCK_SIZE_NEXT - 1);
+                    else ctxNext.fillRect((col) * BLOCK_SIZE_NEXT + canvasNext.width / 2 - 50, (row) * BLOCK_SIZE_NEXT + canvasNext.height / 2 - 40, BLOCK_SIZE_NEXT - 1, BLOCK_SIZE_NEXT - 1);
+                }
             }
         }
     }
@@ -466,7 +437,9 @@ function play() {
         animFlag = true;
         pauseFlag = false;
     }
-    tetromino = getNextTetromino();
+    tetromino = nextTetromino;
+    nextTetromino = getNextTetromino();
+    // tetromino = getNextTetromino();
     count = 0;
     gameOver = false;
     pauseFlag = false;
@@ -477,6 +450,7 @@ function play() {
     linesDiv.textContent = 'Lines: ' + lines;
     levelDiv.textContent = 'Level: ' + level;
     scoreDiv.textContent = 'Score: ' + score;
+    playButton.textContent = 'Retry';
 }
 
 
